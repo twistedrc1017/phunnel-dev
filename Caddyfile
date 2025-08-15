@@ -1,0 +1,8 @@
+phunnel.ca {
+  encode zstd gzip
+  reverse_proxy app:4173
+}
+
+www.phunnel.ca {
+  redir https://phunnel.ca{uri} permanent
+}

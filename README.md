@@ -1,73 +1,75 @@
-# Welcome to your Lovable project
+# Phunnel Lead Generation Platform
 
-## Project info
+## 🚀 Getting Started
 
-**URL**: https://lovable.dev/projects/fbcb4d68-0f22-4cb8-b8aa-50cf6dc05f10
+### Prerequisites
+- **Node.js** ≥ 18
+- **npm**, **yarn**, or **pnpm**
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/fbcb4d68-0f22-4cb8-b8aa-50cf6dc05f10) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### Installation
+```bash
+# Install dependencies
+npm install
 ```
 
-**Edit a file directly in GitHub**
+### Development
+```bash
+# Start development server
+npm run dev
+```
+The app will be available at [http://localhost:5173](http://localhost:5173).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build
+```bash
+npm run build
+```
+The production build will be generated in the `dist` directory.
 
-**Use GitHub Codespaces**
+### Preview Production Build
+```bash
+npm run preview
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## 📂 Project Structure
+```
+src/
+  components/    # Reusable UI components
+  pages/         # Page-level components
+  hooks/         # Custom React hooks
+  lib/           # Utility functions and libraries
+  styles/        # Global styles
+  assets/        # Static assets
+```
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🛠 Available Scripts
+| Command           | Description                              |
+|-------------------|------------------------------------------|
+| `npm run dev`     | Start the development server              |
+| `npm run build`   | Build the application for production      |
+| `npm run preview` | Preview the production build locally      |
+| `npm run lint`    | Run ESLint on the codebase                 |
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/fbcb4d68-0f22-4cb8-b8aa-50cf6dc05f10) and click on Share -> Publish.
+## 📦 Dependencies
+Some key dependencies:
+- **UI & Styling**: TailwindCSS, shadcn/ui, Radix UI
+- **Routing**: React Router DOM
+- **Forms & Validation**: React Hook Form, Zod
+- **State & Data**: TanStack React Query
+- **Charts**: Recharts
+- **3D & Graphics**: Three.js, @react-three/fiber, @react-three/drei
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## 📝 License
+Copyright (c) 2025-present @twistedrc1017 (David Zahiri) and @stfphen (Stephen Prokopich)
+All rights reserved.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+This software and associated documentation files (the "Software") are the exclusive property of @twistedrc1017 (David Zahiri) and @stfphen (Stephen Prokopich)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Unauthorized copying, modification, distribution, or use of this Software, in whole or in part, is strictly prohibited without prior written permission from the copyright holders.

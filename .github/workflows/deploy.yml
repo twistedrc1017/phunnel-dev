@@ -1,0 +1,63 @@
+name: Deploy to Droplet
+
+on:
+  push:
+    branches: [ "master" ]
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 1) Ensure target directory exists on droplet (no deletes; preserves .env / volumes)
+      - name: Prepare remote directory
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: root
+          key: ${{ secrets.DO_SSH_KEY }}
+          script: |
+            set -euo pipefail
+            mkdir -p /home/deploy/app
+
+      # 2) Upload the repo contents to the droplet
+      #    (won’t touch server-side files you didn’t commit, e.g. /home/deploy/app/.env)
+      - name: Upload repository
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: root
+          key: ${{ secrets.DO_SSH_KEY }}
+          source: "."
+          target: "/home/deploy/app"
+
+      # 3) Build & zero-downtime rollout with Docker Compose + Docker Rollout
+      - name: Build and zero-downtime rollout
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: root
+          key: ${{ secrets.DO_SSH_KEY }}
+          script: |
+            set -euo pipefail
+            cd /home/deploy/app
+
+            # Sanity check
+            docker compose version || true
+
+            # Build the app service
+            docker compose build app
+
+            # Perform zero-downtime deployment with docker-rollout
+            docker rollout app
+
+            # Optional cleanup
+            docker image prune -f || true

@@ -2,62 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Luxury Home Builder AI Platform Design System */
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
 
 @layer base {
   :root {
-    /* Premium Dark Theme */
-    --background: 222 47% 8%;
-    --foreground: 210 40% 98%;
+    /* Phunnel brand color scheme - vibrant green accents */
+    --background: 0 0% 98%;
+    --foreground: 240 10% 9%;
 
-    --card: 222 47% 10%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 9%;
 
-    --popover: 222 47% 10%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 9%;
 
-    /* Luxury Gold Primary */
-    --primary: 45 100% 65%;
-    --primary-foreground: 222 47% 8%;
+    /* Phunnel brand green primary */
+    --primary: 85 60% 45%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Elegant Blue Secondary */
-    --secondary: 210 60% 25%;
-    --secondary-foreground: 210 40% 98%;
+    /* Warm gray secondary */
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 10% 15%;
 
-    --muted: 222 47% 15%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
 
-    /* Premium Accent */
-    --accent: 210 60% 20%;
-    --accent-foreground: 210 40% 98%;
+    /* Phunnel accent - brighter green */
+    --accent: 85 70% 50%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 75% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 222 47% 20%;
-    --input: 222 47% 15%;
-    --ring: 45 100% 65%;
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 85 60% 45%;
 
-    /* Premium Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(45 100% 65%), hsl(35 100% 55%));
-    --gradient-secondary: linear-gradient(135deg, hsl(210 60% 25%), hsl(220 60% 35%));
-    --gradient-hero: linear-gradient(135deg, hsl(222 47% 8%), hsl(210 60% 15%));
-    --gradient-card: linear-gradient(135deg, hsl(222 47% 10% / 0.8), hsl(210 60% 15% / 0.6));
+    --radius: 0.75rem;
+
+    /* Phunnel gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(85 60% 45%), hsl(85 70% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(240 10% 9%) 0%, hsl(240 8% 15%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(240 5% 98%) 100%);
     
-    /* Premium Shadows */
-    --shadow-luxury: 0 20px 40px hsl(222 47% 4% / 0.4);
-    --shadow-gold: 0 10px 30px hsl(45 100% 65% / 0.2);
-    --shadow-card: 0 8px 24px hsl(222 47% 4% / 0.3);
-    
-    /* Glass Effects */
-    --glass-bg: hsl(222 47% 10% / 0.7);
-    --glass-border: hsl(210 40% 98% / 0.1);
-    
-    /* Animations */
-    --transition-luxury: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-    --radius: 0.5rem;
+    /* Shadows */
+    --shadow-luxury: 0 20px 40px -10px hsl(240 10% 9% / 0.1);
+    --shadow-green: 0 8px 25px -8px hsl(85 60% 45% / 0.3);
 
     --sidebar-background: 0 0% 98%;
 
@@ -77,33 +69,40 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark Phunnel theme */
+    --background: 240 10% 9%;
+    --foreground: 0 0% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 240 8% 12%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 240 8% 12%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Phunnel green remains vibrant in dark mode */
+    --primary: 85 65% 50%;
+    --primary-foreground: 240 10% 9%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 240 8% 15%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 240 8% 15%;
+    --muted-foreground: 240 5% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 85 75% 55%;
+    --accent-foreground: 240 10% 9%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 240 10% 9%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 240 8% 18%;
+    --input: 240 8% 18%;
+    --ring: 85 65% 50%;
+
+    /* Dark Phunnel gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(85 65% 50%), hsl(85 75% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(240 10% 6%) 0%, hsl(240 8% 12%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(240 8% 12%) 0%, hsl(240 6% 15%) 100%);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
