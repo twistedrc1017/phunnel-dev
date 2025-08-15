@@ -96,12 +96,15 @@ export function CalendarShell({ className }: CalendarShellProps) {
 
   const handleEventUpdate = async (eventId: string, updates: Partial<CalendarEvent>) => {
     try {
+      // Map event type to valid project status
+      const validStatus = updates.type === 'completed' ? 'completed' : 'active';
+      
       const { error } = await supabase
         .from('projects')
         .update({
           name: updates.title,
           description: updates.description,
-          status: updates.type
+          status: validStatus as "active" | "paused" | "completed"
         })
         .eq('id', eventId);
 
@@ -140,7 +143,7 @@ export function CalendarShell({ className }: CalendarShellProps) {
   const handleEventDelete = async (eventId: string) => {
     try {
       const { error } = await supabase
-        .from('appointments')
+        .from('projects')
         .delete()
         .eq('id', eventId);
 
