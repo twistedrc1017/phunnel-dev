@@ -14,6 +14,8 @@ import Pricing from "./pages/Pricing";
 import IndustryTemplates from "./pages/IndustryTemplates";
 import { IndustryPage } from "./pages/IndustryPage";
 import Calendar from "./pages/Calendar";
+import Templates from "./app/(dashboard)/templates/page";
+import TemplateDetail from "./app/(dashboard)/templates/[key]/page";
 import { PrivateRoute } from "./components/Auth/PrivateRoute";
 
 const queryClient = new QueryClient();

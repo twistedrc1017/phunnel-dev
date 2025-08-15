@@ -1,0 +1,32 @@
+{
+  "key": "legal_intake",
+  "name": "Legal Case Intake Wizard",
+  "version": 1,
+  "industries": ["legal"],
+  "ui": {
+    "route": "/apps/legal-intake",
+    "navLabel": "Case Intake",
+    "icon": "FileText"
+  },
+  "permissions": ["leads:read", "leads:write", "org:admin"],
+  "backend": {
+    "needsEdgeFn": true,
+    "webhooks": [
+      {
+        "path": "/conflicts-check",
+        "secretEnv": "LEGAL_DB_API_KEY"
+      }
+    ]
+  },
+  "configSchema": {
+    "retainer_amounts": {
+      "type": "object",
+      "properties": {
+        "personal_injury": { "type": "number", "default": 0 },
+        "family": { "type": "number", "default": 2500 },
+        "criminal": { "type": "number", "default": 5000 },
+        "business": { "type": "number", "default": 3500 }
+      }
+    }
+  }
+}

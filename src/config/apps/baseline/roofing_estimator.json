@@ -1,0 +1,26 @@
+{
+  "key": "roofing_estimator",
+  "name": "Roofing Cost Estimator",
+  "version": 1,
+  "industries": ["roofing", "home_services"],
+  "ui": {
+    "route": "/apps/roofing-estimator",
+    "navLabel": "Cost Estimator",
+    "icon": "Calculator"
+  },
+  "permissions": ["leads:read", "leads:write"],
+  "backend": {
+    "needsEdgeFn": false
+  },
+  "configSchema": {
+    "material_costs": {
+      "type": "object",
+      "properties": {
+        "asphalt_per_sq": { "type": "number", "default": 350 },
+        "metal_per_sq": { "type": "number", "default": 750 },
+        "tile_per_sq": { "type": "number", "default": 500 }
+      }
+    },
+    "labor_rate_per_sq": { "type": "number", "default": 200 }
+  }
+}

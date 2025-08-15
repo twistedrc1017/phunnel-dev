@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "industryKey": "med_spa",
+    "displayName": "Medical Spa",
+    "version": 1,
+    "icon": "Sparkles",
+    "description": "Comprehensive medical spa services including aesthetic treatments and wellness programs"
+  },
+  "pipeline": {
+    "stages": ["New", "Consult Booked", "Consultation", "Plan Proposed", "Treatment Booked", "In Treatment", "Completed"]
+  },
+  "leadForm": {
+    "fields": [
+      {
+        "key": "name",
+        "label": "Full Name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "email",
+        "label": "Email",
+        "type": "email",
+        "required": true
+      },
+      {
+        "key": "phone",
+        "label": "Phone",
+        "type": "tel",
+        "required": true
+      },
+      {
+        "key": "age_range",
+        "label": "Age Range",
+        "type": "select",
+        "required": true,
+        "options": [
+          { "label": "18-25", "value": "18-25" },
+          { "label": "26-35", "value": "26-35" },
+          { "label": "36-45", "value": "36-45" },
+          { "label": "46-55", "value": "46-55" },
+          { "label": "56-65", "value": "56-65" },
+          { "label": "65+", "value": "65+" }
+        ]
+      },
+      {
+        "key": "concern",
+        "label": "Primary Concern",
+        "type": "select",
+        "required": true,
+        "options": [
+          { "label": "Anti-Aging/Wrinkles", "value": "anti_aging" },
+          { "label": "Acne/Acne Scars", "value": "acne" },
+          { "label": "Body Contouring", "value": "body_contouring" },
+          { "label": "Hair Removal", "value": "hair_removal" },
+          { "label": "Skin Rejuvenation", "value": "skin_rejuvenation" },
+          { "label": "Weight Loss", "value": "weight_loss" },
+          { "label": "Wellness/IV Therapy", "value": "wellness" },
+          { "label": "Other", "value": "other" }
+        ]
+      },
+      {
+        "key": "previous_treatments",
+        "label": "Previous Treatments",
+        "type": "select",
+        "options": [
+          { "label": "Never had treatments", "value": "none" },
+          { "label": "Botox/Fillers", "value": "injectables" },
+          { "label": "Laser treatments", "value": "laser" },
+          { "label": "Chemical peels", "value": "peels" },
+          { "label": "Multiple treatments", "value": "multiple" }
+        ]
+      },
+      {
+        "key": "budget",
+        "label": "Budget Range",
+        "type": "select",
+        "options": [
+          { "label": "Under $500", "value": "under_500" },
+          { "label": "$500 - $1,000", "value": "500_1000" },
+          { "label": "$1,000 - $2,500", "value": "1000_2500" },
+          { "label": "$2,500 - $5,000", "value": "2500_5000" },
+          { "label": "$5,000+", "value": "5000_plus" }
+        ]
+      },
+      {
+        "key": "preferred_date",
+        "label": "Preferred Consultation Date",
+        "type": "date"
+      },
+      {
+        "key": "goals",
+        "label": "Treatment Goals",
+        "type": "textarea",
+        "placeholder": "Tell us about your aesthetic goals and concerns..."
+      }
+    ]
+  },
+  "aiScripts": {
+    "intro": "Welcome! I'm so excited to help you on your aesthetic journey. Let's discuss your goals and find the perfect treatment plan to help you look and feel your absolute best.",
+    "closing": "Thank you for sharing your goals with me! Based on our conversation, I believe we have some wonderful treatment options that will help you achieve the results you're looking for. Our medical team will create a personalized treatment plan, and we'll schedule your complimentary consultation within the next few days.",
+    "qualifiers": [
+      "What are your main aesthetic concerns or goals?",
+      "Have you had any previous cosmetic treatments?",
+      "What's your budget range for treatments?",
+      "Are you looking for subtle enhancement or more dramatic results?",
+      "Do you have any upcoming events or special occasions?",
+      "Are you interested in a single treatment or a comprehensive plan?"
+    ]
+  },
+  "calendar": {
+    "viewModes": ["week", "month"],
+    "eventFields": [
+      {
+        "key": "appointment_type",
+        "label": "Appointment Type",
+        "type": "select",
+        "required": true,
+        "options": [
+          { "label": "Consultation", "value": "consultation" },
+          { "label": "Botox/Fillers", "value": "injectables" },
+          { "label": "Laser Treatment", "value": "laser" },
+          { "label": "Chemical Peel", "value": "peel" },
+          { "label": "Body Treatment", "value": "body" },
+          { "label": "Follow-up", "value": "followup" }
+        ]
+      },
+      {
+        "key": "duration",
+        "label": "Duration (minutes)",
+        "type": "select",
+        "options": [
+          { "label": "30 minutes", "value": "30" },
+          { "label": "60 minutes", "value": "60" },
+          { "label": "90 minutes", "value": "90" },
+          { "label": "120 minutes", "value": "120" }
+        ]
+      },
+      {
+        "key": "provider",
+        "label": "Provider",
+        "type": "select",
+        "options": [
+          { "label": "Dr. Smith", "value": "dr_smith" },
+          { "label": "Nurse Sarah", "value": "nurse_sarah" },
+          { "label": "Aesthetician Lisa", "value": "lisa" }
+        ]
+      }
+    ]
+  },
+  "landing": {
+    "sections": [
+      {
+        "key": "hero",
+        "props": {
+          "title": "Your Beauty, Enhanced",
+          "subtitle": "Advanced Aesthetic Treatments for Natural-Looking Results",
+          "cta": "Book Consultation"
+        }
+      },
+      {
+        "key": "treatments",
+        "props": {
+          "title": "Our Treatments",
+          "treatments": ["Botox & Fillers", "Laser Hair Removal", "Body Contouring", "Chemical Peels", "IV Therapy"]
+        }
+      },
+      {
+        "key": "before_after",
+        "props": {
+          "title": "Real Results"
+        }
+      },
+      {
+        "key": "testimonials",
+        "props": {
+          "title": "Client Love"
+        }
+      },
+      {
+        "key": "cta",
+        "props": {
+          "title": "Ready to Enhance Your Natural Beauty?",
+          "cta": "Schedule Free Consultation"
+        }
+      }
+    ]
+  },
+  "analytics": {
+    "kpis": [
+      {
+        "key": "consultation_to_treatment_rate",
+        "label": "Consultation to Treatment Rate",
+        "formula": "treatments_booked / consultations_completed * 100"
+      },
+      {
+        "key": "avg_treatment_value",
+        "label": "Average Treatment Value",
+        "formula": "sum(treatment_values) / count(treatments)"
+      },
+      {
+        "key": "client_retention_rate",
+        "label": "Client Retention Rate",
+        "formula": "returning_clients / total_clients * 100"
+      },
+      {
+        "key": "rebooking_rate",
+        "label": "Rebooking Rate",
+        "formula": "clients_with_multiple_treatments / total_clients * 100"
+      }
+    ]
+  },
+  "automations": [
+    {
+      "key": "consultation_reminder",
+      "trigger": "status_changed",
+      "action": "send_sms",
+      "template": {
+        "message": "Hi {{name}}! Just a reminder about your consultation tomorrow at {{time}}. We're excited to see you!"
+      }
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+{
+  "meta": {
+    "industryKey": "luxury_builders",
+    "displayName": "Luxury Home Builders",
+    "version": 1,
+    "icon": "Building2",
+    "description": "Comprehensive template for luxury home builders focusing on high-end custom construction"
+  },
+  "pipeline": {
+    "stages": ["New", "Qualified", "Site Visit", "Proposal", "Contract", "In Build", "Complete"]
+  },
+  "leadForm": {
+    "fields": [
+      {
+        "key": "name",
+        "label": "Full Name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "email",
+        "label": "Email",
+        "type": "email",
+        "required": true
+      },
+      {
+        "key": "phone",
+        "label": "Phone",
+        "type": "tel",
+        "required": true
+      },
+      {
+        "key": "project_location",
+        "label": "Project Location",
+        "type": "text",
+        "required": true,
+        "placeholder": "City, State or Address"
+      },
+      {
+        "key": "budget",
+        "label": "Budget Range",
+        "type": "select",
+        "required": true,
+        "options": [
+          { "label": "$500K - $1M", "value": "500k-1m" },
+          { "label": "$1M - $2M", "value": "1m-2m" },
+          { "label": "$2M - $5M", "value": "2m-5m" },
+          { "label": "$5M+", "value": "5m+" }
+        ]
+      },
+      {
+        "key": "desired_style",
+        "label": "Desired Style",
+        "type": "select",
+        "options": [
+          { "label": "Modern Contemporary", "value": "modern" },
+          { "label": "Traditional", "value": "traditional" },
+          { "label": "Mediterranean", "value": "mediterranean" },
+          { "label": "Craftsman", "value": "craftsman" },
+          { "label": "Colonial", "value": "colonial" },
+          { "label": "Other", "value": "other" }
+        ]
+      },
+      {
+        "key": "timeline",
+        "label": "Desired Timeline",
+        "type": "select",
+        "options": [
+          { "label": "ASAP", "value": "asap" },
+          { "label": "3-6 months", "value": "3-6mo" },
+          { "label": "6-12 months", "value": "6-12mo" },
+          { "label": "1+ years", "value": "1yr+" }
+        ]
+      },
+      {
+        "key": "architect",
+        "label": "Architect Engaged",
+        "type": "select",
+        "options": [
+          { "label": "Yes, already have architect", "value": "yes" },
+          { "label": "No, need architect", "value": "no" },
+          { "label": "Considering options", "value": "considering" }
+        ]
+      },
+      {
+        "key": "notes",
+        "label": "Project Details",
+        "type": "textarea",
+        "placeholder": "Tell us about your vision, lot details, special requirements..."
+      }
+    ]
+  },
+  "aiScripts": {
+    "intro": "Hello! Thank you for your interest in luxury home building. I'd love to learn about your vision and help you explore how we can bring your dream home to life.",
+    "closing": "Thank you for sharing your vision with me. Based on what you've told me, I believe we can create something truly exceptional. I'll have our design team prepare some initial concepts and our project manager will reach out within 24 hours to schedule your complimentary site consultation.",
+    "qualifiers": [
+      "What's your budget range for this project?",
+      "Do you already own the land or are you looking for a lot?",
+      "What's your ideal timeline for completion?",
+      "Do you have an architect or are you looking for design-build services?",
+      "What architectural style appeals to you most?",
+      "Are there any specific features or amenities that are must-haves?"
+    ]
+  },
+  "calendar": {
+    "viewModes": ["week", "month", "timeline"],
+    "eventFields": [
+      {
+        "key": "site_visit_date",
+        "label": "Site Visit Date",
+        "type": "date",
+        "required": true
+      },
+      {
+        "key": "crew_size",
+        "label": "Crew Size",
+        "type": "select",
+        "options": [
+          { "label": "Small (2-4)", "value": "small" },
+          { "label": "Medium (5-8)", "value": "medium" },
+          { "label": "Large (9+)", "value": "large" }
+        ]
+      },
+      {
+        "key": "milestone",
+        "label": "Project Milestone",
+        "type": "select",
+        "options": [
+          { "label": "Initial Consultation", "value": "consultation" },
+          { "label": "Site Survey", "value": "survey" },
+          { "label": "Design Review", "value": "design" },
+          { "label": "Permit Submission", "value": "permit" },
+          { "label": "Foundation", "value": "foundation" },
+          { "label": "Framing", "value": "framing" },
+          { "label": "Final Walkthrough", "value": "walkthrough" }
+        ]
+      }
+    ]
+  },
+  "landing": {
+    "sections": [
+      {
+        "key": "hero",
+        "props": {
+          "title": "Luxury Custom Homes",
+          "subtitle": "Where Vision Meets Craftsmanship",
+          "cta": "Start Your Project"
+        }
+      },
+      {
+        "key": "portfolio",
+        "props": {
+          "title": "Our Portfolio",
+          "subtitle": "Exceptional homes built for discerning clients"
+        }
+      },
+      {
+        "key": "process",
+        "props": {
+          "title": "Our Process",
+          "steps": ["Consultation", "Design", "Permits", "Construction", "Completion"]
+        }
+      },
+      {
+        "key": "testimonials",
+        "props": {
+          "title": "Client Stories"
+        }
+      },
+      {
+        "key": "cta",
+        "props": {
+          "title": "Ready to Build Your Dream?",
+          "cta": "Schedule Consultation"
+        }
+      }
+    ]
+  },
+  "analytics": {
+    "kpis": [
+      {
+        "key": "qualified_rate",
+        "label": "Qualification Rate",
+        "formula": "qualified_leads / total_leads * 100"
+      },
+      {
+        "key": "avg_budget",
+        "label": "Average Project Budget",
+        "formula": "sum(project_budgets) / count(projects)"
+      },
+      {
+        "key": "proposal_to_contract_rate",
+        "label": "Proposal to Contract Rate",
+        "formula": "contracts_signed / proposals_sent * 100"
+      },
+      {
+        "key": "project_timeline",
+        "label": "Avg Project Timeline (Days)",
+        "formula": "avg(completion_date - start_date)"
+      }
+    ]
+  },
+  "automations": [
+    {
+      "key": "auto_followup_luxury",
+      "trigger": "lead_created",
+      "action": "send_email",
+      "template": {
+        "subject": "Your Luxury Home Building Journey Begins",
+        "body": "Thank you for your interest in our luxury home building services..."
+      }
+    }
+  ]
+}

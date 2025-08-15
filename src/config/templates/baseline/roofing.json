@@ -1,0 +1,212 @@
+{
+  "meta": {
+    "industryKey": "roofing",
+    "displayName": "Roofing Services",
+    "version": 1,
+    "icon": "Home",
+    "description": "Professional roofing services including repairs, replacements, and inspections"
+  },
+  "pipeline": {
+    "stages": ["New", "Roof Inspect", "Estimate Sent", "Scheduled", "In Progress", "Completed", "Paid"]
+  },
+  "leadForm": {
+    "fields": [
+      {
+        "key": "name",
+        "label": "Name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "email",
+        "label": "Email",
+        "type": "email",
+        "required": true
+      },
+      {
+        "key": "phone",
+        "label": "Phone",
+        "type": "tel",
+        "required": true
+      },
+      {
+        "key": "address",
+        "label": "Property Address",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "roof_type",
+        "label": "Roof Type",
+        "type": "select",
+        "options": [
+          { "label": "Asphalt Shingles", "value": "asphalt" },
+          { "label": "Metal", "value": "metal" },
+          { "label": "Tile", "value": "tile" },
+          { "label": "Slate", "value": "slate" },
+          { "label": "Flat/TPO", "value": "flat" },
+          { "label": "Not Sure", "value": "unknown" }
+        ]
+      },
+      {
+        "key": "sq_ft",
+        "label": "Approximate Square Footage",
+        "type": "text",
+        "placeholder": "e.g., 2000"
+      },
+      {
+        "key": "issue_type",
+        "label": "Type of Issue",
+        "type": "select",
+        "required": true,
+        "options": [
+          { "label": "Leak", "value": "leak" },
+          { "label": "Storm Damage", "value": "storm" },
+          { "label": "Age/Replacement", "value": "replacement" },
+          { "label": "Maintenance/Inspection", "value": "maintenance" },
+          { "label": "New Construction", "value": "new" }
+        ]
+      },
+      {
+        "key": "insurance_claim",
+        "label": "Insurance Claim",
+        "type": "select",
+        "options": [
+          { "label": "Yes, filed claim", "value": "filed" },
+          { "label": "Need help filing", "value": "need_help" },
+          { "label": "No insurance claim", "value": "no" }
+        ]
+      },
+      {
+        "key": "urgency",
+        "label": "Urgency Level",
+        "type": "select",
+        "required": true,
+        "options": [
+          { "label": "Emergency (Active leak)", "value": "emergency" },
+          { "label": "Urgent (Within 2 weeks)", "value": "urgent" },
+          { "label": "Soon (Within month)", "value": "soon" },
+          { "label": "Planning ahead", "value": "planning" }
+        ]
+      },
+      {
+        "key": "notes",
+        "label": "Additional Details",
+        "type": "textarea",
+        "placeholder": "Describe the issue, damage photos can be uploaded later..."
+      }
+    ]
+  },
+  "aiScripts": {
+    "intro": "Hi there! I understand you're having roofing concerns. I'm here to help you get this resolved quickly and professionally. Let me gather some details about your situation.",
+    "closing": "Thank you for providing those details. Based on what you've shared, we'll prioritize your request appropriately. Our inspector will contact you within 24 hours to schedule a free roof assessment.",
+    "qualifiers": [
+      "What type of roofing issue are you experiencing?",
+      "Is there any active leaking or emergency situation?",
+      "What type of roof do you have?",
+      "Have you filed an insurance claim or is this insurance-related?",
+      "What's your timeline for getting this resolved?",
+      "Do you have any photos of the damage or issue?"
+    ]
+  },
+  "calendar": {
+    "viewModes": ["week", "month", "timeline"],
+    "eventFields": [
+      {
+        "key": "inspection_date",
+        "label": "Inspection Date",
+        "type": "date",
+        "required": true
+      },
+      {
+        "key": "crew_size",
+        "label": "Crew Size",
+        "type": "select",
+        "options": [
+          { "label": "Inspector Only", "value": "inspector" },
+          { "label": "2-3 Workers", "value": "small" },
+          { "label": "4-6 Workers", "value": "medium" },
+          { "label": "Full Crew (7+)", "value": "large" }
+        ]
+      },
+      {
+        "key": "job_type",
+        "label": "Job Type",
+        "type": "select",
+        "options": [
+          { "label": "Inspection", "value": "inspection" },
+          { "label": "Repair", "value": "repair" },
+          { "label": "Partial Replacement", "value": "partial" },
+          { "label": "Full Replacement", "value": "full" },
+          { "label": "Emergency Service", "value": "emergency" }
+        ]
+      }
+    ]
+  },
+  "landing": {
+    "sections": [
+      {
+        "key": "hero",
+        "props": {
+          "title": "Professional Roofing Services",
+          "subtitle": "Protecting Your Home with Quality Craftsmanship",
+          "cta": "Get Free Estimate"
+        }
+      },
+      {
+        "key": "services",
+        "props": {
+          "title": "Our Services",
+          "services": ["Roof Repair", "Roof Replacement", "Storm Damage", "Insurance Claims", "Maintenance"]
+        }
+      },
+      {
+        "key": "testimonials",
+        "props": {
+          "title": "What Our Customers Say"
+        }
+      },
+      {
+        "key": "cta",
+        "props": {
+          "title": "Need Roofing Help?",
+          "cta": "Call Now for Emergency Service"
+        }
+      }
+    ]
+  },
+  "analytics": {
+    "kpis": [
+      {
+        "key": "inspection_to_job_rate",
+        "label": "Inspection to Job Rate",
+        "formula": "jobs_started / inspections_completed * 100"
+      },
+      {
+        "key": "avg_job_value",
+        "label": "Average Job Value",
+        "formula": "sum(job_values) / count(jobs)"
+      },
+      {
+        "key": "emergency_response_time",
+        "label": "Emergency Response Time (Hours)",
+        "formula": "avg(response_time_emergency)"
+      },
+      {
+        "key": "customer_satisfaction",
+        "label": "Customer Satisfaction",
+        "formula": "avg(satisfaction_score)"
+      }
+    ]
+  },
+  "automations": [
+    {
+      "key": "emergency_alert",
+      "trigger": "lead_created",
+      "action": "send_sms",
+      "template": {
+        "message": "Emergency roofing request received. Dispatch crew immediately."
+      }
+    }
+  ]
+}

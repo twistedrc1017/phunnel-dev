@@ -1,0 +1,222 @@
+{
+  "meta": {
+    "industryKey": "legal",
+    "displayName": "Legal Services",
+    "version": 1,
+    "icon": "Scale",
+    "description": "Professional legal services including consultation, case management, and client intake"
+  },
+  "pipeline": {
+    "stages": ["New", "Intake", "Conflicts Check", "Retainer", "Active Case", "Discovery", "Resolution", "Closed"]
+  },
+  "leadForm": {
+    "fields": [
+      {
+        "key": "name",
+        "label": "Full Name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "email",
+        "label": "Email",
+        "type": "email",
+        "required": true
+      },
+      {
+        "key": "phone",
+        "label": "Phone",
+        "type": "tel",
+        "required": true
+      },
+      {
+        "key": "matter_type",
+        "label": "Type of Legal Matter",
+        "type": "select",
+        "required": true,
+        "options": [
+          { "label": "Personal Injury", "value": "personal_injury" },
+          { "label": "Family Law", "value": "family" },
+          { "label": "Criminal Defense", "value": "criminal" },
+          { "label": "Business Law", "value": "business" },
+          { "label": "Real Estate", "value": "real_estate" },
+          { "label": "Estate Planning", "value": "estate" },
+          { "label": "Employment Law", "value": "employment" },
+          { "label": "Other", "value": "other" }
+        ]
+      },
+      {
+        "key": "incident_date",
+        "label": "Date of Incident/Issue",
+        "type": "date"
+      },
+      {
+        "key": "opposing_party",
+        "label": "Opposing Party (if any)",
+        "type": "text",
+        "placeholder": "Name of person or organization"
+      },
+      {
+        "key": "urgency",
+        "label": "Urgency Level",
+        "type": "select",
+        "required": true,
+        "options": [
+          { "label": "Immediate (Within 24 hours)", "value": "immediate" },
+          { "label": "Urgent (Within 1 week)", "value": "urgent" },
+          { "label": "Soon (Within 1 month)", "value": "soon" },
+          { "label": "General consultation", "value": "general" }
+        ]
+      },
+      {
+        "key": "previous_attorney",
+        "label": "Previous Attorney",
+        "type": "select",
+        "options": [
+          { "label": "No previous attorney", "value": "none" },
+          { "label": "Had attorney, case closed", "value": "previous_closed" },
+          { "label": "Currently have attorney", "value": "current" },
+          { "label": "Had attorney, now seeking new representation", "value": "seeking_new" }
+        ]
+      },
+      {
+        "key": "budget_concern",
+        "label": "Budget Considerations",
+        "type": "select",
+        "options": [
+          { "label": "Contingency fee preferred", "value": "contingency" },
+          { "label": "Hourly rate acceptable", "value": "hourly" },
+          { "label": "Flat fee preferred", "value": "flat" },
+          { "label": "Need payment plan", "value": "payment_plan" },
+          { "label": "Discuss options", "value": "discuss" }
+        ]
+      },
+      {
+        "key": "case_details",
+        "label": "Case Details",
+        "type": "textarea",
+        "required": true,
+        "placeholder": "Please describe your legal matter in detail..."
+      }
+    ]
+  },
+  "aiScripts": {
+    "intro": "Thank you for reaching out regarding your legal matter. I understand this can be a stressful time, and I'm here to help you understand your options. Let me gather some information so we can best assist you.",
+    "closing": "Thank you for providing those details. I understand the urgency of your situation. Our legal team will review your case within 24 hours, and an attorney will contact you personally to discuss your options and next steps. In the meantime, please don't hesitate to call if you have any immediate concerns.",
+    "qualifiers": [
+      "What type of legal matter brings you to us today?",
+      "When did this incident or issue occur?",
+      "Have you spoken with any other attorneys about this matter?",
+      "What outcome are you hoping to achieve?",
+      "Do you have any deadlines or time constraints we should know about?",
+      "Are you comfortable with different fee structures like hourly vs contingency?"
+    ]
+  },
+  "calendar": {
+    "viewModes": ["week", "month", "timeline"],
+    "eventFields": [
+      {
+        "key": "appointment_type",
+        "label": "Appointment Type",
+        "type": "select",
+        "required": true,
+        "options": [
+          { "label": "Initial Consultation", "value": "consultation" },
+          { "label": "Case Strategy Meeting", "value": "strategy" },
+          { "label": "Document Review", "value": "document_review" },
+          { "label": "Court Appearance", "value": "court" },
+          { "label": "Deposition", "value": "deposition" },
+          { "label": "Settlement Conference", "value": "settlement" }
+        ]
+      },
+      {
+        "key": "attorney",
+        "label": "Attorney",
+        "type": "select",
+        "options": [
+          { "label": "John Smith, Esq.", "value": "john_smith" },
+          { "label": "Sarah Johnson, Esq.", "value": "sarah_johnson" },
+          { "label": "Mike Davis, Esq.", "value": "mike_davis" }
+        ]
+      },
+      {
+        "key": "case_deadline",
+        "label": "Related Case Deadline",
+        "type": "date"
+      }
+    ]
+  },
+  "landing": {
+    "sections": [
+      {
+        "key": "hero",
+        "props": {
+          "title": "Experienced Legal Representation",
+          "subtitle": "Protecting Your Rights with Dedicated Advocacy",
+          "cta": "Free Consultation"
+        }
+      },
+      {
+        "key": "practice_areas",
+        "props": {
+          "title": "Practice Areas",
+          "areas": ["Personal Injury", "Family Law", "Criminal Defense", "Business Law", "Real Estate"]
+        }
+      },
+      {
+        "key": "attorney_profiles",
+        "props": {
+          "title": "Our Attorneys"
+        }
+      },
+      {
+        "key": "testimonials",
+        "props": {
+          "title": "Client Success Stories"
+        }
+      },
+      {
+        "key": "cta",
+        "props": {
+          "title": "Need Legal Help?",
+          "cta": "Call Now for Free Consultation"
+        }
+      }
+    ]
+  },
+  "analytics": {
+    "kpis": [
+      {
+        "key": "consultation_to_retainer_rate",
+        "label": "Consultation to Retainer Rate",
+        "formula": "retainers_signed / consultations_completed * 100"
+      },
+      {
+        "key": "avg_case_value",
+        "label": "Average Case Value",
+        "formula": "sum(case_values) / count(cases)"
+      },
+      {
+        "key": "case_resolution_time",
+        "label": "Average Case Resolution (Days)",
+        "formula": "avg(resolution_date - case_start_date)"
+      },
+      {
+        "key": "client_satisfaction",
+        "label": "Client Satisfaction Score",
+        "formula": "avg(satisfaction_ratings)"
+      }
+    ]
+  },
+  "automations": [
+    {
+      "key": "urgent_case_alert",
+      "trigger": "lead_created",
+      "action": "send_email",
+      "template": {
+        "subject": "Urgent Legal Matter - Immediate Review Required",
+        "body": "New urgent legal matter requires immediate attorney review..."
+      }
+    }
+  ]
+}

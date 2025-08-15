@@ -70,6 +70,75 @@ export type Database = {
         }
         Relationships: []
       }
+      industry_apps: {
+        Row: {
+          created_at: string | null
+          id: string
+          industry_keys: string[]
+          is_active: boolean
+          key: string
+          name: string
+          spec: Json
+          updated_at: string | null
+          version: number
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          industry_keys: string[]
+          is_active?: boolean
+          key: string
+          name: string
+          spec: Json
+          updated_at?: string | null
+          version?: number
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          industry_keys?: string[]
+          is_active?: boolean
+          key?: string
+          name?: string
+          spec?: Json
+          updated_at?: string | null
+          version?: number
+        }
+        Relationships: []
+      }
+      industry_templates: {
+        Row: {
+          created_at: string | null
+          id: string
+          is_active: boolean
+          key: string
+          name: string
+          spec: Json
+          updated_at: string | null
+          version: number
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          is_active?: boolean
+          key: string
+          name: string
+          spec: Json
+          updated_at?: string | null
+          version?: number
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          is_active?: boolean
+          key?: string
+          name?: string
+          spec?: Json
+          updated_at?: string | null
+          version?: number
+        }
+        Relationships: []
+      }
       leads: {
         Row: {
           budget: number | null
@@ -117,6 +186,79 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
+      }
+      org_industry_template: {
+        Row: {
+          created_at: string | null
+          id: string
+          overrides: Json | null
+          template_key: string
+          template_version: number
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          overrides?: Json | null
+          template_key: string
+          template_version: number
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          overrides?: Json | null
+          template_key?: string
+          template_version?: number
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fk_template_key"
+            columns: ["template_key"]
+            isOneToOne: false
+            referencedRelation: "industry_templates"
+            referencedColumns: ["key"]
+          },
+        ]
+      }
+      org_installed_apps: {
+        Row: {
+          app_key: string
+          config: Json | null
+          created_at: string | null
+          id: string
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          app_key: string
+          config?: Json | null
+          created_at?: string | null
+          id?: string
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          app_key?: string
+          config?: Json | null
+          created_at?: string | null
+          id?: string
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fk_app_key"
+            columns: ["app_key"]
+            isOneToOne: false
+            referencedRelation: "industry_apps"
+            referencedColumns: ["key"]
+          },
+        ]
       }
       profiles: {
         Row: {
