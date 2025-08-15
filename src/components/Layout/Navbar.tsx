@@ -65,9 +65,9 @@ export const Navbar: React.FC = () => {
               Home
             </Button>
             <Button
-              variant={isActive('/industry-templates') ? "default" : "ghost"}
+              variant={isActive('/industries') ? "default" : "ghost"}
               size="sm"
-              onClick={() => navigate('/industry-templates')}
+              onClick={() => navigate('/industries')}
               className="flex items-center gap-2"
             >
               Industries

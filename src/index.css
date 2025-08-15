@@ -51,6 +51,13 @@ All colors MUST be HSL.
     --shadow-luxury: 0 20px 40px -10px hsl(240 10% 9% / 0.1);
     --shadow-green: 0 8px 25px -8px hsl(85 60% 45% / 0.3);
 
+    /* Luxury theme variables */
+    --bg: 11 11 15;
+    --panel: 18 18 26;
+    --gold: 43 96% 56%;
+    --gradient-luxury: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--gold)));
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+
     --sidebar-background: 0 0% 98%;
 
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -122,5 +129,25 @@ All colors MUST be HSL.
   html,
   body {
     @apply bg-background text-foreground overflow-x-hidden;
+  }
+}
+
+/* Mobile responsive utilities */
+@layer utilities {
+  .container-responsive {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scroll-smooth {
+    scroll-behavior: smooth;
   }
 }

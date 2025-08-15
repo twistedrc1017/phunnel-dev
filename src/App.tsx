@@ -13,6 +13,7 @@ import ServicePage from "./pages/ServicePage";
 import Pricing from "./pages/Pricing";
 import IndustryTemplates from "./pages/IndustryTemplates";
 import { IndustryPage } from "./pages/IndustryPage";
+import Calendar from "./pages/Calendar";
 import { PrivateRoute } from "./components/Auth/PrivateRoute";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,11 @@ const App: React.FC = () => {
               <Route path="/industry/:industryId" element={<IndustryPage />} />
               <Route path="/industries" element={<IndustryTemplates />} />
               <Route path="/pricing" element={<Pricing />} />
+              <Route path="/dashboard/calendar" element={
+                <PrivateRoute>
+                  <Calendar />
+                </PrivateRoute>
+              } />
               <Route 
                 path="/dashboard" 
                 element={

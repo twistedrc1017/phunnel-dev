@@ -196,6 +196,16 @@ export default function IndustryTemplates() {
     navigate(`/industry/${industryId}`);
   };
 
+  // Handle deep linking to sections
+  React.useEffect(() => {
+    if (window.location.hash) {
+      const element = document.getElementById(window.location.hash.slice(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
       {/* Hero Section */}
@@ -223,7 +233,8 @@ export default function IndustryTemplates() {
               return (
                 <Card 
                   key={industry.id}
-                  className={`group cursor-pointer transition-all duration-300 hover:scale-102 border-2 ${industry.accent} bg-gradient-to-br ${industry.gradient} backdrop-blur-sm animate-fade-in`}
+                  id={industry.id}
+                  className={`group cursor-pointer transition-all duration-300 hover:scale-102 border-2 ${industry.accent} bg-gradient-to-br ${industry.gradient} backdrop-blur-sm animate-fade-in scroll-mt-24`}
                   style={{ animationDelay: `${index * 100}ms` }}
                   onClick={() => handleIndustryClick(industry.id)}
                 >

@@ -7,6 +7,7 @@ import { Overview } from "@/components/Dashboard/Overview";
 import { AIConversations } from "@/components/Dashboard/AIConversations";
 import { LeadPipeline } from "@/components/Dashboard/LeadPipeline";
 import { Analytics } from "@/components/Dashboard/Analytics";
+import { CalendarShell } from "@/components/Calendar/CalendarShell";
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { 
   Home, 
@@ -77,7 +78,7 @@ const Dashboard = () => {
       <div className="container mx-auto px-6 py-8">
         {/* Main Dashboard */}
         <Tabs value={selectedTab} onValueChange={handleTabChange} className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4 bg-muted/50">
+          <TabsList className="grid w-full grid-cols-5 bg-muted/50">
             <TabsTrigger 
               value="overview" 
               className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
@@ -102,6 +103,12 @@ const Dashboard = () => {
             >
               Analytics
             </TabsTrigger>
+            <TabsTrigger 
+              value="calendar" 
+              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+            >
+              Calendar
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview" className="space-y-6">
@@ -118,6 +125,10 @@ const Dashboard = () => {
 
           <TabsContent value="analytics" className="space-y-6">
             <Analytics />
+          </TabsContent>
+
+          <TabsContent value="calendar" className="space-y-6">
+            <CalendarShell />
           </TabsContent>
         </Tabs>
       </div>

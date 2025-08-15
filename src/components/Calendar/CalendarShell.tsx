@@ -201,7 +201,7 @@ export function CalendarShell({ className }: CalendarShellProps) {
   };
 
   return (
-    <div className={`space-y-6 ${className}`}>
+    <div className={`space-y-6 w-full overflow-x-hidden ${className}`}>
       {/* Header */}
       <div className="flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
         <div>
@@ -252,7 +252,7 @@ export function CalendarShell({ className }: CalendarShellProps) {
       </div>
 
       {/* Calendar View */}
-      <Card className="border-border/40 bg-card/50 backdrop-blur-sm">
+      <Card className="border-border/40 bg-card/50 backdrop-blur-sm w-full overflow-hidden">
         {renderView()}
       </Card>
 
