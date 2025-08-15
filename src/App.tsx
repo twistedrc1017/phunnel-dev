@@ -22,10 +22,9 @@ const queryClient = new QueryClient();
 
 const App: React.FC = () => {
   return (
-    <React.StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider delayDuration={0} skipDelayDuration={500}>
-          <BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider delayDuration={0} skipDelayDuration={500}>
+        <BrowserRouter>
           <div className="min-h-screen">
             <Routes>
               <Route path="/" element={<Index />} />
@@ -69,12 +68,11 @@ const App: React.FC = () => {
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
-          <Toaster />
-          <Sonner />
-        </BrowserRouter>
-        </TooltipProvider>
-      </QueryClientProvider>
-    </React.StrictMode>
+        <Toaster />
+        <Sonner />
+      </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
   );
 };
 
