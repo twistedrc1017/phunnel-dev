@@ -45,7 +45,7 @@ const Templates: React.FC = () => {
         .order('name');
 
       if (error) throw error;
-      setTemplates((data || []) as IndustryTemplate[]);
+      setTemplates((data || []) as unknown as IndustryTemplate[]);
     } catch (error) {
       console.error('Error fetching templates:', error);
     } finally {

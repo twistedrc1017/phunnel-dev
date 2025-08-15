@@ -51,7 +51,7 @@ const TemplateDetail: React.FC = () => {
         .single();
 
       if (error) throw error;
-      setTemplate(data as IndustryTemplate);
+      setTemplate(data as unknown as IndustryTemplate);
     } catch (error) {
       console.error('Error fetching template:', error);
       toast({

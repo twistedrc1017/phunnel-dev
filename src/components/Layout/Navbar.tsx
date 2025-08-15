@@ -81,6 +81,14 @@ export const Navbar: React.FC = () => {
               Pricing
             </Button>
             <Button
+              variant={isActive('/dashboard/templates') ? "default" : "ghost"}
+              size="sm"
+              onClick={() => navigate('/dashboard/templates')}
+              className="flex items-center gap-2"
+            >
+              Templates
+            </Button>
+            <Button
               variant={isActive('/dashboard') ? "default" : "ghost"}
               size="sm"
               onClick={() => navigate('/dashboard')}

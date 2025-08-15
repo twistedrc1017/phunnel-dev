@@ -39,6 +39,16 @@ const App: React.FC = () => {
                   <Calendar />
                 </PrivateRoute>
               } />
+              <Route path="/dashboard/templates" element={
+                <PrivateRoute>
+                  <Templates />
+                </PrivateRoute>
+              } />
+              <Route path="/dashboard/templates/:key" element={
+                <PrivateRoute>
+                  <TemplateDetail />
+                </PrivateRoute>
+              } />
               <Route 
                 path="/dashboard" 
                 element={
