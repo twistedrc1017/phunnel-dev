@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Navbar } from '@/components/Layout/Navbar';
 import { 
   Building2, 
   Home, 
@@ -208,6 +209,7 @@ export default function IndustryTemplates() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
+      <Navbar />
       {/* Hero Section */}
       <section className="py-20 px-4 text-center">
         <div className="max-w-4xl mx-auto">
