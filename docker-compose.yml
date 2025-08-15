@@ -16,7 +16,11 @@ services:
       - VITE_SITE_URL=${VITE_SITE_URL}
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:4173/"]  # or use CMD-SHELL node version
+      test:
+        [
+          "CMD-SHELL",
+          "node -e \"require('http').get('http://localhost:4173', res => process.exit(res.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1));\""
+        ]
       interval: 10s
       timeout: 5s
       retries: 5
