@@ -21,6 +21,9 @@ import AppearanceSettings from "./pages/AppearanceSettings";
 import { PrivateRoute } from "./components/Auth/PrivateRoute";
 import { ThemeProvider } from "./lib/theme/ThemeProvider";
 
+// Import seed script for easy access in browser console
+import "./scripts/seed-leads";
+
 const queryClient = new QueryClient();
 
 const App: React.FC = () => {
