@@ -35,6 +35,7 @@ const App: React.FC = () => {
             <div className="min-h-screen">
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/auth" element={<Auth />} />
               <Route path="/get-started" element={<GetStarted />} />
               <Route path="/services/:serviceId" element={<ServicePage />} />
               <Route path="/industry/:industryId" element={<IndustryPage />} />
