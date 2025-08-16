@@ -163,7 +163,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ onAuthSuccess }) => {
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-primary hover:bg-primary/90"
+                  className="w-full bg-primary hover:bg-primary/80"
                   disabled={isLoading}
                 >
                   {isLoading ? (
@@ -253,7 +253,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ onAuthSuccess }) => {
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-primary hover:bg-primary/90"
+                  className="w-full bg-primary hover:bg-primary/80"
                   disabled={isLoading}
                 >
                   {isLoading ? (
