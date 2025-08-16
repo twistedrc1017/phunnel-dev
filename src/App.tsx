@@ -16,7 +16,10 @@ import { IndustryPage } from "./pages/IndustryPage";
 import Calendar from "./pages/Calendar";
 import Templates from "./app/(dashboard)/templates/page";
 import TemplateDetail from "./app/(dashboard)/templates/[key]/page";
+import GetStarted from "./pages/GetStarted";
+import AppearanceSettings from "./pages/AppearanceSettings";
 import { PrivateRoute } from "./components/Auth/PrivateRoute";
+import { ThemeProvider } from "./lib/theme/ThemeProvider";
 
 const queryClient = new QueryClient();
 
@@ -24,11 +27,12 @@ const App: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider delayDuration={0} skipDelayDuration={500}>
-        <BrowserRouter>
-          <div className="min-h-screen">
+        <ThemeProvider>
+          <BrowserRouter>
+            <div className="min-h-screen">
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/auth" element={<Auth />} />
+              <Route path="/get-started" element={<GetStarted />} />
               <Route path="/services/:serviceId" element={<ServicePage />} />
               <Route path="/industry/:industryId" element={<IndustryPage />} />
               <Route path="/industries" element={<IndustryTemplates />} />
@@ -64,13 +68,22 @@ const App: React.FC = () => {
                   </PrivateRoute>
                 } 
               />
+              <Route 
+                path="/settings/appearance" 
+                element={
+                  <PrivateRoute>
+                    <AppearanceSettings />
+                  </PrivateRoute>
+                } 
+              />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
-        <Toaster />
-        <Sonner />
-      </BrowserRouter>
+          <Toaster />
+          <Sonner />
+        </BrowserRouter>
+        </ThemeProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );

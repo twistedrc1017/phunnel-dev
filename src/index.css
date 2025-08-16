@@ -8,71 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Phunnel brand color scheme - vibrant green accents */
-    --background: 0 0% 98%;
-    --foreground: 240 10% 9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 9%;
-
-    /* Phunnel brand green primary */
-    --primary: 85 60% 45%;
-    --primary-foreground: 0 0% 100%;
-
-    /* Warm gray secondary */
-    --secondary: 240 5% 96%;
-    --secondary-foreground: 240 10% 15%;
-
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 4% 46%;
-
-    /* Phunnel accent - brighter green */
-    --accent: 85 70% 50%;
-    --accent-foreground: 0 0% 100%;
-
+    /* Theme Variables - Editable via Theme Editor */
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 47.9 95.8% 53.1%;
+    --primary-foreground: 26 83.3% 14.1%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
-    --ring: 85 60% 45%;
-
-    --radius: 0.75rem;
-
-    /* Phunnel gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(85 60% 45%), hsl(85 70% 55%));
-    --gradient-hero: linear-gradient(135deg, hsl(240 10% 9%) 0%, hsl(240 8% 15%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(240 5% 98%) 100%);
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 47.9 95.8% 53.1%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
     
-    /* Shadows */
-    --shadow-luxury: 0 20px 40px -10px hsl(240 10% 9% / 0.1);
-    --shadow-green: 0 8px 25px -8px hsl(85 60% 45% / 0.3);
+    /* Layout & Typography - Editable */
+    --radius: 0.75rem;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-size-base: 16px;
+    --line-height: 1.6;
 
-    /* Luxury theme variables */
-    --bg: 11 11 15;
-    --panel: 18 18 26;
-    --gold: 43 96% 56%;
-    --gradient-luxury: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--gold)));
-    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Legacy variables for backward compatibility */
+    --sidebar-background: 222.2 84% 4.9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 47.9 95.8% 53.1%;
+    --sidebar-primary-foreground: 26 83.3% 14.1%;
+    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-ring: 47.9 95.8% 53.1%;
   }
 
   .dark {
@@ -129,6 +108,9 @@ All colors MUST be HSL.
   html,
   body {
     @apply bg-background text-foreground overflow-x-hidden;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height);
   }
 }
 
