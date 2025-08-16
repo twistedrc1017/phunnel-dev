@@ -1,5 +1,4 @@
-// Express 5 has built-in async error handling, but we keep this for consistency
-import 'express-async-errors';
+// Express 5 has built-in async error handling - no need for express-async-errors
 import express, { Application, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import compression from 'compression';

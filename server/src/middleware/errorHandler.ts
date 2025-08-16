@@ -24,14 +24,8 @@ export class CustomError extends Error implements AppError {
   }
 }
 
-// Async error wrapper (Express 5 has built-in async support but this provides consistency)
-export const asyncHandler = (fn: Function) => (req: Request, res: Response, next: NextFunction) => {
-  const result = fn(req, res, next);
-  if (result && typeof result.catch === 'function') {
-    return result.catch(next);
-  }
-  return result;
-};
+// Express 5 has built-in async error handling - no wrapper needed
+// Async functions automatically have their rejections caught and passed to error handlers
 
 // Handle cast errors (MongoDB-like)
 const handleCastError = (error: any): CustomError => {
