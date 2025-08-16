@@ -225,7 +225,7 @@ export const Analytics = () => {
                 <div key={status} className="space-y-2">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                      <div className={`w-3 h-3 rounded-full ${statusColors[status as keyof typeof statusColors] || 'bg-gray-500'}`} />
+                      <div className={`w-3 h-3 rounded-full ${statusColors[status as keyof typeof statusColors] || 'bg-muted'}`} />
                       <span className="text-sm font-medium capitalize">{status}</span>
                     </div>
                     <div className="flex items-center space-x-2">
@@ -235,7 +235,7 @@ export const Analytics = () => {
                   </div>
                   <div className="w-full bg-muted/50 rounded-full h-2">
                     <div 
-                      className={`h-2 rounded-full ${statusColors[status as keyof typeof statusColors] || 'bg-gray-500'}`}
+                      className={`h-2 rounded-full ${statusColors[status as keyof typeof statusColors] || 'bg-muted'}`}
                       style={{ width: `${percentage}%` }}
                     />
                   </div>

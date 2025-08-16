@@ -286,7 +286,7 @@ const ServicePage: React.FC = () => {
               {service.process.map((step, index) => (
                 <Card key={index} className="text-center border-border/50 shadow-luxury">
                   <CardHeader>
-                    <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center text-primary-foreground font-bold text-lg mx-auto mb-4">
                       {index + 1}
                     </div>
                     <CardDescription className="text-base font-medium">
@@ -314,7 +314,7 @@ const ServicePage: React.FC = () => {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-3">
                       <div className="w-8 h-8 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
-                        <CheckCircle className="h-5 w-5 text-white" />
+                        <CheckCircle className="h-5 w-5 text-primary-foreground" />
                       </div>
                       {benefit}
                     </CardTitle>
