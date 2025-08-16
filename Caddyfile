@@ -1,8 +1,58 @@
+# Production Caddyfile for Phunnel with API Proxy
 phunnel.ca {
-  encode zstd gzip
-  reverse_proxy app:4173
+	# Proxy API requests to Node.js server
+	handle /api/* {
+		reverse_proxy api-server:3001
+	}
+
+	# Serve frontend application
+	handle {
+		encode zstd gzip
+		reverse_proxy app:4173
+	}
+
+	# Security headers
+	header {
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+		X-XSS-Protection "1; mode=block"
+		Referrer-Policy strict-origin-when-cross-origin
+	}
 }
 
+# Redirect www to non-www
 www.phunnel.ca {
-  redir https://phunnel.ca{uri} permanent
+	redir https://phunnel.ca{uri} permanent
+}
+
+# Development/Local configuration (when running on port 8080)
+:8080 {
+	# Proxy API requests to Node.js server
+	handle /api/* {
+		reverse_proxy api-server:3001
+	}
+
+	# Serve frontend static files
+	handle {
+		root * /usr/share/caddy
+		try_files {path} /index.html
+		file_server
+	}
+
+	# Add security headers
+	header {
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+		X-XSS-Protection "1; mode=block"
+		Referrer-Policy strict-origin-when-cross-origin
+	}
+
+	# Enable compression
+	encode gzip zstd
+
+	# Logging for development
+	log {
+		output stdout
+		format console
+	}
 }

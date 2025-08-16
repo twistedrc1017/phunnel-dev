@@ -1,5 +1,6 @@
-import 'express-async-errors'; // Must be imported first
-import express, { Application } from 'express';
+// Express 5 has built-in async error handling, but we keep this for consistency
+import 'express-async-errors';
+import express, { Application, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import compression from 'compression';
 import { env, isDevelopment, isProduction } from './config/environment';
@@ -10,8 +11,8 @@ import apiRoutes from './routes/api';
 
 const app: Application = express();
 
-// Trust proxy for accurate IP addresses
-app.set('trust proxy', 1);
+// Express 5: Trust proxy configuration (improved syntax)
+app.set('trust proxy', true);
 
 // Security middleware
 app.use(securityHeaders);
@@ -55,11 +56,12 @@ if (isProduction) {
 // Request validation
 app.use(validateRequest);
 
-// Add request ID for tracing
-app.use((req, res, next) => {
-  req.headers['x-request-id'] = req.headers['x-request-id'] || 
+// Add request ID for tracing (Express 5 compatible)
+app.use((req: Request, res: Response, next: NextFunction): void => {
+  const requestId = (req.headers['x-request-id'] as string) || 
     Math.random().toString(36).substr(2, 9);
-  res.setHeader('x-request-id', req.headers['x-request-id']);
+  req.headers['x-request-id'] = requestId;
+  res.setHeader('x-request-id', requestId);
   next();
 });
 
