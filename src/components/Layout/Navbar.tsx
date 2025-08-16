@@ -26,8 +26,8 @@ export const Navbar: React.FC = () => {
         description: "You've been logged out of your account.",
       });
       
-      // Force page reload for clean state
-      window.location.href = '/';
+      // Navigate to home page
+      navigate('/');
     } catch (error: any) {
       toast({
         title: "Sign out failed",

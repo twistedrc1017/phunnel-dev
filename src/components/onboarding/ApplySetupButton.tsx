@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import { useNavigate } from 'react-router-dom';
 import { matchTemplateAndWidgets } from '@/lib/onboarding/match';
 
 export function ApplySetupButton({ answers, templateKey, widgets }: {
@@ -11,6 +12,7 @@ export function ApplySetupButton({ answers, templateKey, widgets }: {
 }) {
   const [applying, setApplying] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleApplySetup = async () => {
     setApplying(true);
@@ -65,9 +67,9 @@ export function ApplySetupButton({ answers, templateKey, widgets }: {
         description: "Your personalized business setup is now active. Redirecting to dashboard...",
       });
 
-      // Redirect to dashboard after a brief delay
+      // Navigate to dashboard after a brief delay
       setTimeout(() => {
-        window.location.href = '/dashboard';
+        navigate('/dashboard');
       }, 2000);
 
     } catch (error) {

@@ -99,8 +99,8 @@ const Profile: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <title>Profile Settings - LuxuryLeads</title>
-      <meta name="description" content="Manage your LuxuryLeads profile settings and account information." />
+      <title>Profile Settings - Phunnel</title>
+      <meta name="description" content="Manage your Phunnel profile settings and account information." />
       
       <Navbar />
       

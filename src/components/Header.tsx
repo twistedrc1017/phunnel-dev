@@ -15,21 +15,21 @@ const Header = () => {
         </div>
         
         <nav className="hidden md:flex items-center space-x-6">
-          <a href="#dashboard" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+          <button onClick={() => document.getElementById('dashboard')?.scrollIntoView({ behavior: 'smooth' })} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
             Dashboard
-          </a>
-          <a href="#leads" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+          </button>
+          <button onClick={() => document.getElementById('leads')?.scrollIntoView({ behavior: 'smooth' })} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
             Leads
-          </a>
-          <a href="#ai-calls" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+          </button>
+          <button onClick={() => document.getElementById('ai-calls')?.scrollIntoView({ behavior: 'smooth' })} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
             AI Calls
-          </a>
-          <a href="#analytics" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+          </button>
+          <button onClick={() => document.getElementById('analytics')?.scrollIntoView({ behavior: 'smooth' })} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
             Analytics
-          </a>
-          <a href="#showcase" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+          </button>
+          <button onClick={() => document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
             Showcase
-          </a>
+          </button>
         </nav>
 
         <div className="flex items-center space-x-3">
