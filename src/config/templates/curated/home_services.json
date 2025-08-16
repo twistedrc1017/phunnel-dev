@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "industryKey": "home_services",
+    "displayName": "Home Services",
+    "version": 1,
+    "icon": "Wrench",
+    "description": "Complete home services management with scheduling, estimates, and job tracking"
+  },
+  "pipeline": {
+    "stages": ["New Request", "Quote Requested", "Quote Sent", "Job Scheduled", "In Progress", "Completed", "Follow-up"]
+  },
+  "leadForm": {
+    "fields": [
+      {
+        "key": "service_address",
+        "label": "Service Address",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "service_type",
+        "label": "Service Needed",
+        "type": "select",
+        "options": [
+          {"label": "Plumbing", "value": "plumbing"},
+          {"label": "Electrical", "value": "electrical"},
+          {"label": "HVAC", "value": "hvac"},
+          {"label": "Roofing", "value": "roofing"},
+          {"label": "Landscaping", "value": "landscaping"},
+          {"label": "Cleaning", "value": "cleaning"},
+          {"label": "Painting", "value": "painting"},
+          {"label": "Other", "value": "other"}
+        ],
+        "required": true
+      },
+      {
+        "key": "urgency",
+        "label": "Service Urgency",
+        "type": "select",
+        "options": [
+          {"label": "Emergency", "value": "emergency"},
+          {"label": "This Week", "value": "this_week"},
+          {"label": "Next 2 Weeks", "value": "next_2_weeks"},
+          {"label": "Next Month", "value": "next_month"},
+          {"label": "Planning/Quote Only", "value": "planning_only"}
+        ],
+        "required": true
+      },
+      {
+        "key": "budget",
+        "label": "Budget Range",
+        "type": "money"
+      },
+      {
+        "key": "customer_email",
+        "label": "Email",
+        "type": "email",
+        "required": true
+      },
+      {
+        "key": "customer_phone",
+        "label": "Phone",
+        "type": "tel",
+        "required": true
+      },
+      {
+        "key": "problem_description",
+        "label": "Problem Description",
+        "type": "textarea",
+        "required": true
+      }
+    ]
+  },
+  "aiScripts": {
+    "intro": "Hi, this is {{business_name}} — I understand you need some home service work done. What type of service are you looking for?",
+    "closing": "Perfect — I've got you scheduled for an estimate. One of our technicians will be in touch within the hour to confirm the details.",
+    "qualifiers": [
+      "Type of service and urgency level",
+      "Property details and accessibility",
+      "Budget range and timeline",
+      "Previous service history"
+    ]
+  },
+  "calendar": {
+    "viewModes": ["week", "month", "timeline"],
+    "eventFields": [
+      {"key": "estimate_date", "label": "Estimate Appointment", "type": "date"},
+      {"key": "service_date", "label": "Service Call", "type": "date"},
+      {"key": "installation_date", "label": "Installation", "type": "date"},
+      {"key": "follow_up_date", "label": "Follow-up", "type": "date"},
+      {"key": "notes", "label": "Job Notes", "type": "textarea"}
+    ]
+  },
+  "landing": {
+    "sections": [
+      {"key": "hero", "props": {"title": "Professional Home Services", "subtitle": "Expert solutions for all your home improvement needs"}},
+      {"key": "services", "props": {"services": ["Emergency Repairs", "Scheduled Maintenance", "Home Improvements", "Preventive Care"]}},
+      {"key": "testimonials", "props": {}},
+      {"key": "cta", "props": {"text": "Get Free Estimate"}}
+    ]
+  },
+  "analytics": {
+    "kpis": [
+      {"key": "response_time", "label": "Avg Response Time", "formula": "avg(response_hours)"},
+      {"key": "completion_rate", "label": "Job Completion %", "formula": "completed_jobs/total_jobs"},
+      {"key": "avg_job_value", "label": "Avg Job Value", "formula": "avg(job_total)"},
+      {"key": "customer_satisfaction", "label": "Customer Satisfaction", "formula": "avg(satisfaction_score)"}
+    ]
+  }
+}

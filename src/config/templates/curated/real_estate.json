@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "industryKey": "real_estate",
+    "displayName": "Real Estate",
+    "version": 1,
+    "icon": "Building2",
+    "description": "Complete real estate CRM with buyer/seller tracking and property management"
+  },
+  "pipeline": {
+    "stages": ["New", "Qualified", "Showing", "Offer", "Under Contract", "Closed Won", "Closed Lost"]
+  },
+  "leadForm": {
+    "fields": [
+      {
+        "key": "client_type",
+        "label": "Client Type",
+        "type": "select",
+        "options": [
+          {"label": "Buyer", "value": "buyer"},
+          {"label": "Seller", "value": "seller"},
+          {"label": "Both", "value": "both"}
+        ],
+        "required": true
+      },
+      {
+        "key": "property_address",
+        "label": "Property Address",
+        "type": "text",
+        "placeholder": "123 Main St, City, State"
+      },
+      {
+        "key": "budget",
+        "label": "Budget Range",
+        "type": "money",
+        "required": true
+      },
+      {
+        "key": "contact_email",
+        "label": "Email",
+        "type": "email",
+        "required": true
+      },
+      {
+        "key": "phone",
+        "label": "Phone",
+        "type": "tel",
+        "required": true
+      },
+      {
+        "key": "timeline",
+        "label": "Timeline",
+        "type": "select",
+        "options": [
+          {"label": "ASAP", "value": "asap"},
+          {"label": "1-3 months", "value": "1_3_months"},
+          {"label": "3-6 months", "value": "3_6_months"},
+          {"label": "6+ months", "value": "6_plus_months"}
+        ]
+      }
+    ]
+  },
+  "aiScripts": {
+    "intro": "Hi, this is the concierge for {{business_name}} — I'd love to help you with your real estate needs. Are you looking to buy or sell?",
+    "closing": "Perfect — I've scheduled you for a consultation. You'll receive a confirmation email shortly with all the details.",
+    "qualifiers": [
+      "Budget range and financing pre-approval status",
+      "Timeline for buying or selling",
+      "Target neighborhood or property type",
+      "Current housing situation"
+    ]
+  },
+  "calendar": {
+    "viewModes": ["week", "month", "timeline"],
+    "eventFields": [
+      {"key": "showing_date", "label": "Property Showing", "type": "date"},
+      {"key": "listing_appointment", "label": "Listing Appointment", "type": "date"},
+      {"key": "closing_date", "label": "Closing", "type": "date"},
+      {"key": "inspection_date", "label": "Inspection", "type": "date"},
+      {"key": "notes", "label": "Notes", "type": "textarea"}
+    ]
+  },
+  "landing": {
+    "sections": [
+      {"key": "hero", "props": {"title": "Find Your Dream Home", "subtitle": "Expert guidance every step of the way"}},
+      {"key": "services", "props": {"services": ["Buyer Representation", "Seller Services", "Investment Properties", "Market Analysis"]}},
+      {"key": "testimonials", "props": {}},
+      {"key": "cta", "props": {"text": "Schedule Your Consultation"}}
+    ]
+  },
+  "analytics": {
+    "kpis": [
+      {"key": "qualified_rate", "label": "Qualified Lead %", "formula": "qualified/total_leads"},
+      {"key": "avg_sale_price", "label": "Avg Sale Price", "formula": "avg(sale_price)"},
+      {"key": "days_to_close", "label": "Avg Days to Close", "formula": "avg(close_date - contract_date)"},
+      {"key": "commission_total", "label": "Total Commission", "formula": "sum(commission_amount)"}
+    ]
+  }
+}

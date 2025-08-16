@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "industryKey": "consulting",
+    "displayName": "Consulting",
+    "version": 1,
+    "icon": "Users",
+    "description": "Professional consulting practice with project management and proposal automation"
+  },
+  "pipeline": {
+    "stages": ["New Inquiry", "Discovery Call", "Proposal Sent", "Negotiation", "Contract Signed", "Project Active", "Completed"]
+  },
+  "leadForm": {
+    "fields": [
+      {
+        "key": "company_name",
+        "label": "Company Name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "contact_title",
+        "label": "Your Title",
+        "type": "text"
+      },
+      {
+        "key": "consulting_area",
+        "label": "Consulting Area",
+        "type": "select",
+        "options": [
+          {"label": "Business Strategy", "value": "business_strategy"},
+          {"label": "Marketing", "value": "marketing"},
+          {"label": "Operations", "value": "operations"},
+          {"label": "Technology", "value": "technology"},
+          {"label": "HR/Organizational", "value": "hr_organizational"},
+          {"label": "Financial", "value": "financial"},
+          {"label": "Other", "value": "other"}
+        ],
+        "required": true
+      },
+      {
+        "key": "project_scope",
+        "label": "Project Scope",
+        "type": "select",
+        "options": [
+          {"label": "Short-term (< 3 months)", "value": "short_term"},
+          {"label": "Medium-term (3-6 months)", "value": "medium_term"},
+          {"label": "Long-term (6+ months)", "value": "long_term"},
+          {"label": "Ongoing", "value": "ongoing"}
+        ],
+        "required": true
+      },
+      {
+        "key": "budget",
+        "label": "Project Budget",
+        "type": "money"
+      },
+      {
+        "key": "contact_email",
+        "label": "Email",
+        "type": "email",
+        "required": true
+      },
+      {
+        "key": "contact_phone",
+        "label": "Phone",
+        "type": "tel",
+        "required": true
+      },
+      {
+        "key": "project_description",
+        "label": "Project Description",
+        "type": "textarea",
+        "required": true
+      }
+    ]
+  },
+  "aiScripts": {
+    "intro": "Hi, this is {{business_name}} — I understand you're looking for consulting services. What specific business challenge are you trying to solve?",
+    "closing": "Excellent — I've scheduled a discovery call for you. We'll dive deep into your challenges and explore how we can help achieve your goals.",
+    "qualifiers": [
+      "Business challenge and desired outcomes",
+      "Project timeline and budget constraints",
+      "Decision-making process and stakeholders",
+      "Previous consulting experience"
+    ]
+  },
+  "calendar": {
+    "viewModes": ["week", "month", "timeline"],
+    "eventFields": [
+      {"key": "discovery_call", "label": "Discovery Call", "type": "date"},
+      {"key": "strategy_session", "label": "Strategy Session", "type": "date"},
+      {"key": "workshop", "label": "Workshop", "type": "date"},
+      {"key": "presentation", "label": "Presentation", "type": "date"},
+      {"key": "check_in", "label": "Project Check-in", "type": "date"},
+      {"key": "notes", "label": "Meeting Notes", "type": "textarea"}
+    ]
+  },
+  "landing": {
+    "sections": [
+      {"key": "hero", "props": {"title": "Strategic Business Consulting", "subtitle": "Transform your business with expert guidance and proven strategies"}},
+      {"key": "services", "props": {"services": ["Strategic Planning", "Process Optimization", "Change Management", "Performance Improvement"]}},
+      {"key": "case_studies", "props": {}},
+      {"key": "cta", "props": {"text": "Schedule Discovery Call"}}
+    ]
+  },
+  "analytics": {
+    "kpis": [
+      {"key": "proposal_win_rate", "label": "Proposal Win Rate %", "formula": "won_proposals/total_proposals"},
+      {"key": "avg_project_value", "label": "Avg Project Value", "formula": "avg(project_value)"},
+      {"key": "project_margin", "label": "Avg Project Margin %", "formula": "avg(profit_margin)"},
+      {"key": "client_retention", "label": "Client Retention %", "formula": "repeat_clients/total_clients"}
+    ]
+  }
+}

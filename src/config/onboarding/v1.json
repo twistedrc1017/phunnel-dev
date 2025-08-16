@@ -1,0 +1,224 @@
+{
+  "version": 1,
+  "title": "Let's Build Your Perfect Business Setup",
+  "description": "Answer a few quick questions so we can recommend the best tools and templates for your business.",
+  "startNode": "intro",
+  "nodes": [
+    {
+      "key": "intro",
+      "type": "intro",
+      "title": "Welcome to Your Business Setup Assistant",
+      "body": "We'll help you create a customized business platform in just a few minutes. First, let's get your email so we can save your progress.",
+      "next": "email"
+    },
+    {
+      "key": "email",
+      "type": "question",
+      "title": "What's your email address?",
+      "body": "We'll use this to save your progress and send you your customized setup.",
+      "questionType": "email",
+      "required": true,
+      "next": "business_basics"
+    },
+    {
+      "key": "business_basics",
+      "type": "question",
+      "title": "Tell us about your business",
+      "body": "This helps us understand what you do.",
+      "questionType": "text",
+      "next": "business_name"
+    },
+    {
+      "key": "business_name",
+      "type": "question",
+      "title": "What's your business name?",
+      "questionType": "text",
+      "required": true,
+      "next": "website"
+    },
+    {
+      "key": "website",
+      "type": "question",
+      "title": "Do you have a website? (Optional)",
+      "body": "If you have one, we can analyze it to better understand your business.",
+      "questionType": "text",
+      "next": "industry"
+    },
+    {
+      "key": "industry",
+      "type": "question",
+      "title": "Which industry best describes your business?",
+      "questionType": "single",
+      "required": true,
+      "options": [
+        {"label": "Real Estate", "value": "real_estate", "next": "real_estate_specific"},
+        {"label": "Property Management", "value": "property_management", "next": "property_mgmt_specific"},
+        {"label": "Home Services", "value": "home_services", "next": "home_services_specific"},
+        {"label": "Consulting", "value": "consulting", "next": "consulting_specific"},
+        {"label": "Restaurants", "value": "restaurants", "next": "restaurant_specific"}
+      ],
+      "next": "team_size"
+    },
+    {
+      "key": "team_size",
+      "type": "question",
+      "title": "How many people work in your business?",
+      "questionType": "single",
+      "options": [
+        {"label": "Just me", "value": "1"},
+        {"label": "2-5 people", "value": "2_5"},
+        {"label": "6-10 people", "value": "6_10"},
+        {"label": "11-25 people", "value": "11_25"},
+        {"label": "26+ people", "value": "26_plus"}
+      ],
+      "next": "monthly_ad_spend"
+    },
+    {
+      "key": "monthly_ad_spend",
+      "type": "question",
+      "title": "How much do you spend on marketing/advertising per month?",
+      "questionType": "single",
+      "options": [
+        {"label": "Under $500", "value": "under_500"},
+        {"label": "$500 - $2,000", "value": "500_2000"},
+        {"label": "$2,000 - $5,000", "value": "2000_5000"},
+        {"label": "$5,000 - $10,000", "value": "5000_10000"},
+        {"label": "Over $10,000", "value": "over_10000"}
+      ],
+      "next": "pain_points"
+    },
+    {
+      "key": "pain_points",
+      "type": "question",
+      "title": "What are your biggest business challenges?",
+      "body": "Select all that apply.",
+      "questionType": "multi",
+      "options": [
+        {"label": "Too many missed calls", "value": "missed_calls"},
+        {"label": "Scheduling and booking chaos", "value": "scheduling_chaos"},
+        {"label": "Customers no-show frequently", "value": "no_shows"},
+        {"label": "Pricing and estimating takes forever", "value": "pricing_estimates"},
+        {"label": "Losing track of leads", "value": "lead_tracking"},
+        {"label": "Getting paid on time", "value": "payments"},
+        {"label": "Managing multiple properties/units", "value": "multi_unit_ops"},
+        {"label": "Service dispatch and routing", "value": "service_dispatch"},
+        {"label": "Proposal and contract bottlenecks", "value": "proposal_bottlenecks"},
+        {"label": "Menu engineering and inventory", "value": "menu_engineering"},
+        {"label": "Customer loyalty and retention", "value": "customer_retention"}
+      ],
+      "next": "timeline"
+    },
+    {
+      "key": "timeline",
+      "type": "question",
+      "title": "When do you want to get this set up?",
+      "questionType": "single",
+      "options": [
+        {"label": "Right now", "value": "now"},
+        {"label": "Within 30 days", "value": "30_days"},
+        {"label": "Within 90 days", "value": "90_days"}
+      ],
+      "next": "fork_by_industry"
+    },
+    {
+      "key": "fork_by_industry",
+      "type": "fork",
+      "title": "Industry Specific Questions",
+      "conditions": [
+        {"answer": "real_estate", "next": "real_estate_specific"},
+        {"answer": "property_management", "next": "property_mgmt_specific"},
+        {"answer": "home_services", "next": "home_services_specific"},
+        {"answer": "consulting", "next": "consulting_specific"},
+        {"answer": "restaurants", "next": "restaurant_specific"}
+      ]
+    },
+    {
+      "key": "real_estate_specific",
+      "type": "question",
+      "title": "What type of real estate do you focus on?",
+      "questionType": "single",
+      "options": [
+        {"label": "Residential (buyers/sellers)", "value": "residential"},
+        {"label": "Commercial properties", "value": "commercial"},
+        {"label": "Investment properties", "value": "investment"},
+        {"label": "Luxury market", "value": "luxury"}
+      ],
+      "next": "lead_volume"
+    },
+    {
+      "key": "property_mgmt_specific",
+      "type": "question",
+      "title": "What type of properties do you manage?",
+      "questionType": "multi",
+      "options": [
+        {"label": "Single family homes", "value": "single_family"},
+        {"label": "Multi-family buildings", "value": "multi_family"},
+        {"label": "Commercial properties", "value": "commercial"},
+        {"label": "Vacation rentals", "value": "vacation_rentals"}
+      ],
+      "next": "lead_volume"
+    },
+    {
+      "key": "home_services_specific",
+      "type": "question",
+      "title": "What services do you provide?",
+      "questionType": "multi",
+      "options": [
+        {"label": "Plumbing", "value": "plumbing"},
+        {"label": "Electrical", "value": "electrical"},
+        {"label": "HVAC", "value": "hvac"},
+        {"label": "Roofing", "value": "roofing"},
+        {"label": "Landscaping", "value": "landscaping"},
+        {"label": "General contracting", "value": "general_contracting"}
+      ],
+      "next": "lead_volume"
+    },
+    {
+      "key": "consulting_specific",
+      "type": "question",
+      "title": "What type of consulting do you provide?",
+      "questionType": "single",
+      "options": [
+        {"label": "Business strategy", "value": "business_strategy"},
+        {"label": "Marketing consulting", "value": "marketing"},
+        {"label": "Technology consulting", "value": "technology"},
+        {"label": "HR and organizational", "value": "hr_organizational"},
+        {"label": "Financial consulting", "value": "financial"}
+      ],
+      "next": "lead_volume"
+    },
+    {
+      "key": "restaurant_specific",
+      "type": "question",
+      "title": "What type of restaurant/food service?",
+      "questionType": "single",
+      "options": [
+        {"label": "Fine dining", "value": "fine_dining"},
+        {"label": "Casual dining", "value": "casual_dining"},
+        {"label": "Fast casual", "value": "fast_casual"},
+        {"label": "Catering", "value": "catering"},
+        {"label": "Food truck/mobile", "value": "food_truck"}
+      ],
+      "next": "lead_volume"
+    },
+    {
+      "key": "lead_volume",
+      "type": "question",
+      "title": "How many new customers/leads do you want per month?",
+      "questionType": "single",
+      "options": [
+        {"label": "5-15 leads", "value": "5_15"},
+        {"label": "15-30 leads", "value": "15_30"},
+        {"label": "30-50 leads", "value": "30_50"},
+        {"label": "50+ leads", "value": "50_plus"}
+      ],
+      "next": "end"
+    },
+    {
+      "key": "end",
+      "type": "end",
+      "title": "Your Personalized Business Setup Plan",
+      "body": "Based on your answers, we've created a customized setup that will help you grow your business. Review your recommendations below and click 'Apply Setup' to get started."
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "industryKey": "restaurants",
+    "displayName": "Restaurants",
+    "version": 1,
+    "icon": "UtensilsCrossed",
+    "description": "Restaurant management with reservations, events, and customer loyalty tracking"
+  },
+  "pipeline": {
+    "stages": ["New Inquiry", "Menu Discussion", "Quote Sent", "Booking Confirmed", "Event Planned", "Event Completed", "Follow-up"]
+  },
+  "leadForm": {
+    "fields": [
+      {
+        "key": "event_type",
+        "label": "Event Type",
+        "type": "select",
+        "options": [
+          {"label": "Private Dining", "value": "private_dining"},
+          {"label": "Catering", "value": "catering"},
+          {"label": "Corporate Event", "value": "corporate_event"},
+          {"label": "Wedding", "value": "wedding"},
+          {"label": "Birthday Party", "value": "birthday_party"},
+          {"label": "Other Celebration", "value": "other_celebration"}
+        ],
+        "required": true
+      },
+      {
+        "key": "guest_count",
+        "label": "Number of Guests",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "event_date",
+        "label": "Preferred Event Date",
+        "type": "date",
+        "required": true
+      },
+      {
+        "key": "budget_per_person",
+        "label": "Budget Per Person",
+        "type": "money"
+      },
+      {
+        "key": "dietary_restrictions",
+        "label": "Dietary Restrictions",
+        "type": "text"
+      },
+      {
+        "key": "contact_email",
+        "label": "Email",
+        "type": "email",
+        "required": true
+      },
+      {
+        "key": "contact_phone",
+        "label": "Phone",
+        "type": "tel",
+        "required": true
+      },
+      {
+        "key": "special_requests",
+        "label": "Special Requests",
+        "type": "textarea"
+      }
+    ]
+  },
+  "aiScripts": {
+    "intro": "Hi, this is {{business_name}} — I'd love to help you plan an amazing dining experience. What type of event are you planning?",
+    "closing": "Perfect — I've got all the details for your event. Our event coordinator will call you within the hour to finalize the menu and arrangements.",
+    "qualifiers": [
+      "Event type and guest count",
+      "Date preferences and flexibility",
+      "Budget range and menu preferences",
+      "Special dietary requirements or requests"
+    ]
+  },
+  "calendar": {
+    "viewModes": ["week", "month", "timeline"],
+    "eventFields": [
+      {"key": "tasting", "label": "Menu Tasting", "type": "date"},
+      {"key": "menu_planning", "label": "Menu Planning", "type": "date"},
+      {"key": "event", "label": "Event", "type": "date"},
+      {"key": "follow_up", "label": "Follow-up", "type": "date"},
+      {"key": "consultation", "label": "Consultation", "type": "date"},
+      {"key": "notes", "label": "Event Notes", "type": "textarea"}
+    ]
+  },
+  "landing": {
+    "sections": [
+      {"key": "hero", "props": {"title": "Exceptional Dining Experiences", "subtitle": "Create unforgettable moments with our culinary expertise"}},
+      {"key": "services", "props": {"services": ["Private Events", "Corporate Catering", "Wedding Receptions", "Special Occasions"]}},
+      {"key": "gallery", "props": {}},
+      {"key": "cta", "props": {"text": "Plan Your Event"}}
+    ]
+  },
+  "analytics": {
+    "kpis": [
+      {"key": "booking_conversion", "label": "Booking Conversion %", "formula": "confirmed_bookings/inquiries"},
+      {"key": "avg_event_value", "label": "Avg Event Value", "formula": "avg(event_total)"},
+      {"key": "repeat_customer_rate", "label": "Repeat Customer %", "formula": "repeat_customers/total_customers"},
+      {"key": "satisfaction_score", "label": "Customer Satisfaction", "formula": "avg(event_rating)"}
+    ]
+  }
+}

@@ -70,6 +70,75 @@ export type Database = {
         }
         Relationships: []
       }
+      dashboard_widgets: {
+        Row: {
+          component_path: string
+          config_schema: Json
+          created_at: string | null
+          default_config: Json
+          id: string
+          industries: string[]
+          key: string
+          name: string
+          updated_at: string | null
+        }
+        Insert: {
+          component_path: string
+          config_schema: Json
+          created_at?: string | null
+          default_config: Json
+          id?: string
+          industries: string[]
+          key: string
+          name: string
+          updated_at?: string | null
+        }
+        Update: {
+          component_path?: string
+          config_schema?: Json
+          created_at?: string | null
+          default_config?: Json
+          id?: string
+          industries?: string[]
+          key?: string
+          name?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      feature_requests: {
+        Row: {
+          category: string
+          created_at: string | null
+          description: string
+          file_url: string | null
+          id: string
+          industries: string[] | null
+          organization_id: string | null
+          status: string | null
+        }
+        Insert: {
+          category: string
+          created_at?: string | null
+          description: string
+          file_url?: string | null
+          id?: string
+          industries?: string[] | null
+          organization_id?: string | null
+          status?: string | null
+        }
+        Update: {
+          category?: string
+          created_at?: string | null
+          description?: string
+          file_url?: string | null
+          id?: string
+          industries?: string[] | null
+          organization_id?: string | null
+          status?: string | null
+        }
+        Relationships: []
+      }
       industry_apps: {
         Row: {
           created_at: string | null
@@ -109,6 +178,7 @@ export type Database = {
       industry_templates: {
         Row: {
           created_at: string | null
+          hide_from_marketing: boolean | null
           id: string
           is_active: boolean
           key: string
@@ -119,6 +189,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string | null
+          hide_from_marketing?: boolean | null
           id?: string
           is_active?: boolean
           key: string
@@ -129,6 +200,7 @@ export type Database = {
         }
         Update: {
           created_at?: string | null
+          hide_from_marketing?: boolean | null
           id?: string
           is_active?: boolean
           key?: string
@@ -184,6 +256,140 @@ export type Database = {
           timeline?: string | null
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      onboarding_responses: {
+        Row: {
+          business_name: string | null
+          created_at: string | null
+          id: string
+          industry: string | null
+          monthly_ad_spend: number | null
+          pains: string[] | null
+          primary_goals: string[] | null
+          session_id: string | null
+          team_size: number | null
+          timeline: string | null
+          website: string | null
+        }
+        Insert: {
+          business_name?: string | null
+          created_at?: string | null
+          id?: string
+          industry?: string | null
+          monthly_ad_spend?: number | null
+          pains?: string[] | null
+          primary_goals?: string[] | null
+          session_id?: string | null
+          team_size?: number | null
+          timeline?: string | null
+          website?: string | null
+        }
+        Update: {
+          business_name?: string | null
+          created_at?: string | null
+          id?: string
+          industry?: string | null
+          monthly_ad_spend?: number | null
+          pains?: string[] | null
+          primary_goals?: string[] | null
+          session_id?: string | null
+          team_size?: number | null
+          timeline?: string | null
+          website?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "onboarding_responses_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "onboarding_sessions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      onboarding_sessions: {
+        Row: {
+          answers: Json | null
+          created_at: string | null
+          cursor: string | null
+          email: string | null
+          id: string
+          recommended_template: string | null
+          recommended_widgets: string[] | null
+          updated_at: string | null
+          user_id: string | null
+          version: number
+        }
+        Insert: {
+          answers?: Json | null
+          created_at?: string | null
+          cursor?: string | null
+          email?: string | null
+          id?: string
+          recommended_template?: string | null
+          recommended_widgets?: string[] | null
+          updated_at?: string | null
+          user_id?: string | null
+          version: number
+        }
+        Update: {
+          answers?: Json | null
+          created_at?: string | null
+          cursor?: string | null
+          email?: string | null
+          id?: string
+          recommended_template?: string | null
+          recommended_widgets?: string[] | null
+          updated_at?: string | null
+          user_id?: string | null
+          version?: number
+        }
+        Relationships: []
+      }
+      onboarding_surveys: {
+        Row: {
+          created_at: string | null
+          id: string
+          is_active: boolean | null
+          spec: Json
+          version: number
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          is_active?: boolean | null
+          spec: Json
+          version: number
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          is_active?: boolean | null
+          spec?: Json
+          version?: number
+        }
+        Relationships: []
+      }
+      org_dashboard_layout: {
+        Row: {
+          id: string
+          layout: Json
+          organization_id: string
+          updated_at: string | null
+        }
+        Insert: {
+          id?: string
+          layout: Json
+          organization_id: string
+          updated_at?: string | null
+        }
+        Update: {
+          id?: string
+          layout?: Json
+          organization_id?: string
+          updated_at?: string | null
         }
         Relationships: []
       }

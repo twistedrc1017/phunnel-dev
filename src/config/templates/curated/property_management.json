@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "industryKey": "property_management",
+    "displayName": "Property Management",
+    "version": 1,
+    "icon": "Building",
+    "description": "Professional property management with tenant screening and maintenance coordination"
+  },
+  "pipeline": {
+    "stages": ["New Property", "Assessment", "Contract Sent", "Signed", "Active Management", "Terminated"]
+  },
+  "leadForm": {
+    "fields": [
+      {
+        "key": "property_address",
+        "label": "Property Address",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "property_type",
+        "label": "Property Type",
+        "type": "select",
+        "options": [
+          {"label": "Single Family", "value": "single_family"},
+          {"label": "Multi-Family", "value": "multi_family"},
+          {"label": "Condo", "value": "condo"},
+          {"label": "Commercial", "value": "commercial"}
+        ],
+        "required": true
+      },
+      {
+        "key": "units_count",
+        "label": "Number of Units",
+        "type": "text"
+      },
+      {
+        "key": "current_rent",
+        "label": "Current Monthly Rent",
+        "type": "money"
+      },
+      {
+        "key": "service_needed",
+        "label": "Service Needed",
+        "type": "select",
+        "options": [
+          {"label": "Full Management", "value": "full_management"},
+          {"label": "Tenant Placement", "value": "tenant_placement"},
+          {"label": "Maintenance Only", "value": "maintenance_only"},
+          {"label": "Consultation", "value": "consultation"}
+        ],
+        "required": true
+      },
+      {
+        "key": "owner_email",
+        "label": "Owner Email",
+        "type": "email",
+        "required": true
+      },
+      {
+        "key": "owner_phone",
+        "label": "Owner Phone",
+        "type": "tel",
+        "required": true
+      }
+    ]
+  },
+  "aiScripts": {
+    "intro": "Hi, this is {{business_name}} property management services. I understand you're interested in professional property management. What type of property do you own?",
+    "closing": "Excellent — I've scheduled a property assessment for you. We'll provide a detailed management proposal within 24 hours.",
+    "qualifiers": [
+      "Property type and number of units",
+      "Current rental income and vacancy rate",
+      "Management service scope needed",
+      "Owner's location and involvement level"
+    ]
+  },
+  "calendar": {
+    "viewModes": ["week", "month", "timeline"],
+    "eventFields": [
+      {"key": "property_inspection", "label": "Property Inspection", "type": "date"},
+      {"key": "owner_meeting", "label": "Owner Meeting", "type": "date"},
+      {"key": "tenant_showing", "label": "Tenant Showing", "type": "date"},
+      {"key": "maintenance_visit", "label": "Maintenance Visit", "type": "date"},
+      {"key": "notes", "label": "Notes", "type": "textarea"}
+    ]
+  },
+  "landing": {
+    "sections": [
+      {"key": "hero", "props": {"title": "Professional Property Management", "subtitle": "Maximize your rental income with peace of mind"}},
+      {"key": "services", "props": {"services": ["Tenant Screening", "Rent Collection", "Maintenance Coordination", "Financial Reporting"]}},
+      {"key": "portfolio", "props": {}},
+      {"key": "cta", "props": {"text": "Get Free Property Assessment"}}
+    ]
+  },
+  "analytics": {
+    "kpis": [
+      {"key": "occupancy_rate", "label": "Occupancy Rate %", "formula": "occupied_units/total_units"},
+      {"key": "avg_rent", "label": "Avg Monthly Rent", "formula": "avg(monthly_rent)"},
+      {"key": "maintenance_cost", "label": "Avg Maintenance Cost", "formula": "avg(maintenance_expenses)"},
+      {"key": "tenant_retention", "label": "Tenant Retention %", "formula": "renewed_leases/total_leases"}
+    ]
+  }
+}
