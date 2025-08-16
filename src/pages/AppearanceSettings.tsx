@@ -1,5 +1,4 @@
 import React from 'react';
-import { ThemeEditor } from '@/components/theme/ThemeEditor';
 import { Badge } from '@/components/ui/badge';
 import { Sparkles } from 'lucide-react';
 
@@ -17,12 +16,18 @@ export default function AppearanceSettings() {
           </div>
           <h1 className="text-3xl font-bold">Theme Customization</h1>
           <p className="text-muted-foreground mt-2">
-            Customize your workspace appearance. Changes apply instantly and are saved automatically.
+            The app now uses a fixed green and white theme defined in the CSS variables.
           </p>
         </div>
 
-        {/* Theme Editor */}
-        <ThemeEditor />
+        {/* Simple message since theme editor is removed */}
+        <div className="bg-card border rounded-lg p-6">
+          <h2 className="text-xl font-semibold mb-2">Fixed Theme</h2>
+          <p className="text-muted-foreground">
+            The application is now using a consistent green (#7EB82E) and white theme throughout. 
+            All styling is handled via Tailwind CSS with design tokens defined in the index.css file.
+          </p>
+        </div>
       </div>
     </div>
   );

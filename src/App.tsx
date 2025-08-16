@@ -19,7 +19,7 @@ import TemplateDetail from "./app/(dashboard)/templates/[key]/page";
 import GetStarted from "./pages/GetStarted";
 import AppearanceSettings from "./pages/AppearanceSettings";
 import { PrivateRoute } from "./components/Auth/PrivateRoute";
-import { ThemeProvider } from "./lib/theme/ThemeProvider";
+
 
 // Import seed script for easy access in browser console
 import "./scripts/seed-leads";
@@ -30,7 +30,6 @@ const App: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider delayDuration={0} skipDelayDuration={500}>
-        <ThemeProvider>
           <BrowserRouter>
             <div className="min-h-screen">
             <Routes>
@@ -87,7 +86,6 @@ const App: React.FC = () => {
           <Toaster />
           <Sonner />
         </BrowserRouter>
-        </ThemeProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );
