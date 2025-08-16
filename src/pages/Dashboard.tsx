@@ -78,34 +78,34 @@ const Dashboard = () => {
       <div className="container mx-auto px-6 py-8">
         {/* Main Dashboard */}
         <Tabs value={selectedTab} onValueChange={handleTabChange} className="space-y-6">
-          <TabsList className="grid w-full grid-cols-5 bg-muted/50">
+          <TabsList className="grid w-full grid-cols-5 bg-muted/50 border border-border">
             <TabsTrigger 
               value="overview" 
-              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm data-[state=active]:border-primary transition-all"
             >
               Overview
             </TabsTrigger>
             <TabsTrigger 
               value="calls" 
-              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm data-[state=active]:border-primary transition-all"
             >
               AI Calls
             </TabsTrigger>
             <TabsTrigger 
               value="customers"
-              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm data-[state=active]:border-primary transition-all"
             >
               Lead Pipeline
             </TabsTrigger>
             <TabsTrigger 
               value="analytics" 
-              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm data-[state=active]:border-primary transition-all"
             >
               Analytics
             </TabsTrigger>
             <TabsTrigger 
               value="calendar" 
-              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm data-[state=active]:border-primary transition-all"
             >
               Calendar
             </TabsTrigger>
