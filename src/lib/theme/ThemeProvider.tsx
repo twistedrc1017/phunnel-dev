@@ -16,28 +16,42 @@ type ThemeContext = {
 const ThemeCtx = createContext<ThemeContext | null>(null);
 
 const DEFAULT_VARS: ThemeVars = {
-  "--background": "222.2 84% 4.9%",
-  "--foreground": "210 40% 98%",
-  "--card": "222.2 84% 4.9%",
-  "--card-foreground": "210 40% 98%",
-  "--primary": "47.9 95.8% 53.1%", // Gold
-  "--primary-foreground": "26 83.3% 14.1%",
-  "--secondary": "217.2 32.6% 17.5%",
-  "--secondary-foreground": "210 40% 98%",
-  "--muted": "217.2 32.6% 17.5%",
-  "--muted-foreground": "215 20.2% 65.1%",
-  "--accent": "217.2 32.6% 17.5%",
-  "--accent-foreground": "210 40% 98%",
-  "--destructive": "0 84.2% 60.2%",
-  "--destructive-foreground": "210 40% 98%",
-  "--border": "217.2 32.6% 17.5%",
-  "--input": "217.2 32.6% 17.5%",
-  "--ring": "47.9 95.8% 53.1%",
+  /* Light theme — white background, green primary (#7eb82e ~= hsl(85 60% 45%)) */
+  "--background": "0 0% 100%",
+  "--foreground": "240 10% 3.9%",
+
+  "--card": "0 0% 100%",
+  "--card-foreground": "240 10% 3.9%",
+
+  "--primary": "85 60% 45%",
+  "--primary-foreground": "0 0% 100%",
+
+  /* Subtle surfaces */
+  "--secondary": "240 4.8% 96%",
+  "--secondary-foreground": "240 6% 12%",
+
+  "--muted": "240 5% 96%",
+  "--muted-foreground": "240 4% 46%",
+
+  /* Green-tinted accent for highlights/badges */
+  "--accent": "85 50% 92%",
+  "--accent-foreground": "85 40% 20%",
+
+  /* Feedback */
+  "--destructive": "0 84% 60%",
+  "--destructive-foreground": "0 0% 98%",
+
+  /* Controls */
+  "--border": "240 6% 90%",
+  "--input": "240 6% 90%",
+  "--ring": "85 60% 45%",
+
+  /* Layout & Typography */
   "--radius": "0.75rem",
-  "--shadow-sm": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-  "--shadow": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
-  "--shadow-lg": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
-  "--font-sans": "ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji",
+  "--shadow-sm": "0 1px 2px 0 hsl(0 0% 0% / 0.05)",
+  "--shadow": "0 1px 3px 0 hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10)",
+  "--shadow-lg": "0 10px 15px -3px hsl(0 0% 0% / 0.10), 0 4px 6px -4px hsl(0 0% 0% / 0.10)",
+  "--font-sans": 'ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
   "--font-size-base": "16px",
   "--line-height": "1.6"
 };
@@ -56,11 +70,11 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
     setLoading(true);
     try {
       const { data: { user } } = await supabase.auth.getUser();
-      
+
       if (user) {
         // Check user permissions (simplified - assume all logged in users can edit for now)
         setCanEdit(true);
-        
+
         // Try to load org theme, fallback to user theme
         const { data, error } = await supabase
           .from('theme_settings')
@@ -117,7 +131,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
 
       const { error } = await supabase
         .from('theme_settings')
-        .upsert(payload, { 
+        .upsert(payload, {
           onConflict: 'organization_id,name'
         });
 
